@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -16,6 +16,8 @@ public class Distance
 	public Distance()
 	{
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the first x coordinate :: ");
+		xOne = sc.nextInt();
 	}
 
 	public Distance(int x1, int y1, int x2, int y2)
