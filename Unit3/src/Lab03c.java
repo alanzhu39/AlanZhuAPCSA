@@ -13,9 +13,11 @@ public class Lab03c
 	public static void main( String[] args )
    {
    	//add test cases
-   	
-   	
-		
-		
+   	Quadratic quadOne = new Quadratic();
+   	quadOne.print();
+   	Quadratic quadTwo = new Quadratic();
+   	quadTwo.print();
+   	Quadratic quadThree = new Quadratic();
+   	quadThree.print();
 	}
 }

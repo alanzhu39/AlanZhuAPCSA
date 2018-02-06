@@ -15,36 +15,26 @@ public class Distance
 
 	public Distance()
 	{
-
-
-
+		Scanner sc = new Scanner(System.in);
 	}
 
 	public Distance(int x1, int y1, int x2, int y2)
 	{
-
-
-
+		
 	}
 
 	public void setCoordinates(int x1, int y1, int x2, int y2)
 	{
-
-
-
+		
 	}
 
 	public void calcDistance()
 	{
-
-
-
+		
 	}
 
 	public void print( )
 	{
-
-
-
+		
 	}
 }

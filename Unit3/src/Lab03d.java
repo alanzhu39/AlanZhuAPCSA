@@ -14,9 +14,5 @@ public class Lab03d
 	{
 		//add test cases
 		
-		
-		
-		
-			
 	}
 }
