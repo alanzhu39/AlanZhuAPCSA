@@ -18,6 +18,13 @@ public class Distance
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the first x coordinate :: ");
 		xOne = sc.nextInt();
+		System.out.println("Enter the first y coodinate :: ");
+		yOne = sc.nextInt();
+		System.out.println("Enter the second x coordinate :: ");
+		xTwo = sc.nextInt();
+		System.out.println("Enter the second y coordinate :: ");
+		yTwo = sc.nextInt();
+		calcDistance();
 	}
 
 	public Distance(int x1, int y1, int x2, int y2)
@@ -32,11 +39,11 @@ public class Distance
 
 	public void calcDistance()
 	{
-		
+		distance = Math.sqrt(Math.pow(xTwo - xOne,2) + Math.pow(yTwo - yOne, 2));
 	}
 
 	public void print( )
 	{
-		
+		System.out.printf("distance == %.3f\n",distance);
 	}
 }
