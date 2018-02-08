@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -12,34 +12,31 @@ public class Name
 
 	public Name()
 	{
-
-
+		
 	}
 
 	public Name(String s)
 	{
-
-
+		name = s;
 	}
 
    public void setName(String s)
    {
-
-
+	   name = s;
    }
 
 	public String getFirst()
 	{
-		return "";
+		return name.split(" ")[0];
 	}
 
 	public String getLast()
 	{
-		return "";
+		return name.split(" ")[1];
 	}
 
  	public String toString()
  	{
- 		return "";
+ 		return name + "\n";
 	}
 }

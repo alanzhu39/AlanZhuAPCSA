@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -18,33 +18,34 @@ public class StringChecker
 
 	public StringChecker(String s)
 	{
-
-
+		word = s;
 	}
 
    public void setString(String s)
    {
-   	word=s;
+	   word = s;
    }
 
 	public boolean findLetter(char c)
 	{
-
-
-
+		if(word.indexOf(c) >= 0)
+		{
+			return true;
+		}
 		return false;
 	}
 
 	public boolean findSubString(String s)
 	{
-
-
-
+		if(word.indexOf(s) >= 0)
+		{
+			return true;
+		}
 		return false;
 	}
 
  	public String toString()
  	{
- 		return "\n\n";
+ 		return word + "\n\n";
 	}
 }
