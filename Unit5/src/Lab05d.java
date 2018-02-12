@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -19,14 +19,44 @@ public class Lab05d
 		out.println(test);   //A
 
 		//add more test cases
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 		
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 		
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 		
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 		
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 		
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 		
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 		
-		
-
+		out.print("Enter a letter :: ");
+		letter = keyboard.next().charAt(0);
+		test.setChar(letter);
+		out.println(test);
 	}
 }
