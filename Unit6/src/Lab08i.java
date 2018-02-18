@@ -12,12 +12,33 @@ public class Lab08i
 	public static void main ( String[] args )
 	{
 		//add test cases
-		
-		
-		
-		
-		
-		
-		
+		Prime test = new Prime();
+		test.setPrime(24);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(7);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(100);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(113);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(65535);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(2);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(7334);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(7919);
+		System.out.println(test);
+		System.out.println();
+		test.setPrime(1115125003);
+		System.out.println(test);
+		System.out.println();
 	}	
 }

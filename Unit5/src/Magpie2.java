@@ -97,7 +97,14 @@ public class Magpie2
 		{
 			response = "You don't say.";
 		}
-
+		else if (whichResponse == 4)
+		{
+			response = "Wow. Interesting.";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "Fascinating.";
+		}
 		return response;
 	}
 }
