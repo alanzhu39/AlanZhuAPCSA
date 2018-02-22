@@ -73,15 +73,6 @@ public class Magpie4
 			{
 				response = getRandomResponse();
 			}
-			if (psn1 >= 0
-					&& findKeyword(statement, "you", psn) >= 0)
-			{
-				response = transformIYouStatement(statement);
-			}
-			else
-			{
-				response = getRandomResponse();
-			}
 		}
 		return response;
 	}
@@ -152,7 +143,7 @@ public class Magpie4
 	}
 	
 	
-	private String transformIYouStatement(String statement)
+	private String transformIYourStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();

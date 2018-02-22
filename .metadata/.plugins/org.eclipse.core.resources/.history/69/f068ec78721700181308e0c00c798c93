@@ -152,7 +152,7 @@ public class Magpie4
 	}
 	
 	
-	private String transformIYouStatement(String statement)
+	private String transformIYourStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
