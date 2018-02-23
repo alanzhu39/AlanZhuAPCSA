@@ -6,6 +6,8 @@
 
 import static java.lang.System.*;
 
+import java.util.Objects;
+
 public class RomanNumeral
 {
 	private Integer number;
@@ -35,11 +37,11 @@ public class RomanNumeral
 		String rom = "";
 		for(int index = 0; index < NUMBERS.length; index++)
 		{
-			if(NUMBERS[index] < number)
+			if(NUMBERS[index] <= numb)
 			{
 				rom = rom + LETTERS[index];
-				number = number - NUMBERS[index];
-				index = 0;
+				numb = numb - NUMBERS[index];
+				index = -1;
 			}
 		}
 		roman = rom;
@@ -52,13 +54,44 @@ public class RomanNumeral
 		int num = 0;
 		for(int index = 0; index < LETTERS.length; index++)
 		{
-			if(rom.substring(0,LETTERS[index].length()) == LETTERS[index])
+			if(rom.length() == 1 || rom.length() == 0)
+			{
+				if(Objects.equals(rom,LETTERS[index]))
+				{
+					num = num + NUMBERS[index];
+					rom = rom.substring(LETTERS[index].length());
+					index = -1;
+				}
+			}
+			else if(rom.length() == 2)
+			{
+				if(LETTERS[index].length() == 2)
+				{
+					if(rom.equals(LETTERS[index]))
+					{
+						num = num + NUMBERS[index];
+						rom = rom.substring(LETTERS[index].length());
+						index = -1;
+					}
+				}
+				else
+				{
+					if(rom.substring(0,LETTERS[index].length()).equals(LETTERS[index]))
+					{
+						num = num + NUMBERS[index];
+						rom = rom.substring(LETTERS[index].length());
+						index = -1;
+					}
+				}
+			}
+			else if(Objects.equals(rom.substring(0,LETTERS[index].length()),LETTERS[index]))
 			{
 				num = num + NUMBERS[index];
-				rom = rom.substring(0,LETTERS[index].length());
-				index = 0;
+				rom = rom.substring(LETTERS[index].length());
+				index = -1;
 			}
 		}
+		number = num;
 	}
 
 	public Integer getNumber()
@@ -71,11 +104,11 @@ public class RomanNumeral
 		String output = "";
 		if(status)
 		{
-			output = number + " is " + roman;
+			output = getNumber() + " is " + roman;
 		}
 		else
 		{
-			output = roman + " is " + number;
+			output = roman + " is " + getNumber();
 		}
 		return output;
 	}
