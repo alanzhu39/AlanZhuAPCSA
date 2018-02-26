@@ -13,8 +13,5 @@ public class CardTester {
 		Card hearts5 = new Card("five", "hearts", 5);
 		Card other = new Card("ace", "spades", 1);
 		System.out.println(spadesa.matches(other));
-		System.out.println(spadesa);
-		System.out.println(hearts5);
-		System.out.println(clubsa);
 	}
 }
