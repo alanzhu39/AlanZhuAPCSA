@@ -7,7 +7,7 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 3;
 
 	/**
 	 * The number of values to shuffle.
@@ -26,7 +26,7 @@ public class Shuffler {
 			values1[i] = i;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			perfectShuffle(values1);
+			values1 = perfectShuffle(values1);
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values1.length; k++) {
 				System.out.print(" " + values1[k]);
@@ -42,7 +42,7 @@ public class Shuffler {
 			values2[i] = i;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			selectionShuffle(values2);
+			values2 = selectionShuffle(values2);
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values2.length; k++) {
 				System.out.print(" " + values2[k]);
@@ -59,8 +59,21 @@ public class Shuffler {
 	 * the cards in one half with the cards in the other.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
-	public static void perfectShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+	public static int[] perfectShuffle(int[] values) {
+		int[] shuffled = new int[values.length];
+		int k = 0;
+		for(int j = 0; j <= (values.length - 1)/2; j++)
+		{
+			shuffled[k] = values[j];
+			k = k + 2;
+		}
+		k = 1;
+		for(int j = (values.length - 1)/2 + 1; j > (values.length - 1)/2 && j < values.length; j++)
+		{
+			shuffled[k] = values[j];
+			k = k + 2;
+		}
+		return shuffled;
 	}
 
 	/**
@@ -74,7 +87,14 @@ public class Shuffler {
 	 * searching for an as-yet-unselected card.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
-	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+	public static int[] selectionShuffle(int[] values) {
+		for(int k = values.length - 1; k > 0; k--)
+		{
+			int r = (int)(Math.random() * (k+1));
+			int temp = values[k];
+			values[k] = values[r];
+			values[r] = temp;
+		}
+		return values;
 	}
 }
