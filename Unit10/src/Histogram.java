@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -19,46 +19,64 @@ public class Histogram
 
 	public Histogram()
 	{
-
-
-
-
 	}
 
 	public Histogram(char[] values, String fName)
 	{
-
-
-
-
-
-
+		fileName = fName;
+		letters = new ArrayList<>();
+		for(char a : values)
+		{
+			letters.add(a);
+		}
 		out.println("search letters = "+letters);
 	}
 
 	public void loadAndAnalyzeFile() throws IOException
 	{
-
-
-
-
-
-
-
-
+		count = new ArrayList<>();
+		for(int i = 0; i < letters.size(); i++)
+		{
+			count.add(0);
+		}
+		for(int index = 0; index < letters.size(); index++)
+		{
+			Scanner file = new Scanner(new File(fileName)).useDelimiter("");
+			while(file.hasNext())
+			{
+				char nextChar = file.next().charAt(0);
+				if(nextChar == letters.get(index))
+				{
+					count.set(index, count.get(index) + 1);
+				}
+			}
+		}
 	}
 
 	public char mostFrequent()
 	{
-
-		return '#';
+		int mostFreq = 0;
+		for(int index = 0; index < count.size(); index++)
+		{
+			if(count.get(index) > count.get(mostFreq))
+			{
+				mostFreq = index;
+			}
+		}
+		return letters.get(mostFreq);
 	}
 
 	public char leastFrequent()
 	{
-
-
-		return '#';
+		int leastFreq = 0;
+		for(int index = 0; index < count.size(); index++)
+		{
+			if(count.get(index) < count.get(leastFreq))
+			{
+				leastFreq = index;
+			}
+		}
+		return letters.get(leastFreq);
 	}
 
 	public String toString()
