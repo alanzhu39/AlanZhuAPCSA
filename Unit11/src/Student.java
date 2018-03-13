@@ -5,11 +5,13 @@
 //Lab  -
 
 import java.util.Arrays;
+import java.lang.Math;
 import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
+import java.util.ArrayList;
 
-public class Student
+public class Student implements Comparable
 {
 	private String myName;
 	private Grades myGrades;
@@ -58,7 +60,7 @@ public class Student
 	
 	public double getAverage()
 	{
-		return myGrades.getSum() / myGrades.getNumGrades();
+		return Math.round(((myGrades.getSum() / myGrades.getNumGrades()) * 100.0))/100.0;
 	}
 
 	public double getAverageMinusLow()
@@ -79,5 +81,32 @@ public class Student
 	public String toString()
 	{
 		return myName + " = " + myGrades.toString();
-	}	
+	}
+	
+	public int compareTo(Object o)
+	{
+		Student stu = (Student)o;
+		if(getAverage() < stu.getAverage())
+		{
+			return -1;
+		}
+		else if(getAverage() > stu.getAverage())
+		{
+			return 1;
+		}
+		return 0;
+	}
+	
+	public boolean equals(Student stu)
+	{
+		if(!getName().equals(stu.getName()))
+		{
+			return false;
+		}
+		else if(getAverage() != stu.getAverage())
+		{
+			return false;
+		}
+		return true;
+	}
 }

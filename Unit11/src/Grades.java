@@ -8,10 +8,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
+import java.util.ArrayList;
 
 public class Grades
 {
-	private double[] grades;
+	private ArrayList<Double> grades;
 	
 	public Grades()
 	{
@@ -26,22 +27,21 @@ public class Grades
 	public void setGrades(String gradeList)
 	{
 		String[] temp = gradeList.split("\\s");
-		int size = Integer.parseInt(temp[0]);
-		grades = new double[size];
+		grades = new ArrayList<Double>();
 		for(int index = 2; index < temp.length; index++)
 		{
-			grades[index - 2] = Double.parseDouble(temp[index]);
+			grades.add(Double.parseDouble(temp[index]));
 		}
 	}
 	
 	public void setGrade(int spot, double grade)
 	{
-		grades[spot] = grade;
+		grades.set(spot, grade);
 	}
 	
 	public double getSum()
 	{
-		double sum=0.0;
+		double sum = 0.0;
 		for(double grade : grades)
 		{
 			sum += grade;
@@ -77,12 +77,12 @@ public class Grades
 	
 	public int getNumGrades()
 	{
-		return grades.length;
+		return grades.size();
 	}
 	
 	public String toString()
 	{
-		String output="";
+		String output = "";
 		for(double grade : grades)
 		{
 			output += Double.toString(grade) + " ";
