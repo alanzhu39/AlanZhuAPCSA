@@ -40,6 +40,7 @@ public class ElevensBoard extends Board {
 	 */
 	 public ElevensBoard() {
 	 	super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
+	 	System.out.println("Alan Zhu, Period 1, 3-23-18, Computer #26");
 	 }
 
 	/**
@@ -60,7 +61,7 @@ public class ElevensBoard extends Board {
 			{
 				total += cardAt(index).pointValue();
 			}
-			if(total == 11)
+			if(total == 0 && cardAt(selectedCards.get(0)).rank().equals(cardAt(selectedCards.get(1)).rank()))
 			{
 				return true;
 			}
@@ -68,18 +69,11 @@ public class ElevensBoard extends Board {
 		else if(selectedCards.size() == 3)
 		{
 			int total = 0;
-			for(int a = 0; a < selectedCards.size() - 1; a++)
+			for(int index : selectedCards)
 			{
-				for(int b = a + 1; b < selectedCards.size(); b++)
-				{
-					if(cardAt(selectedCards.get(a)).suit().equals(cardAt(selectedCards.get(b))))
-					{
-						return false;
-					}
-				}
-				total += cardAt(selectedCards.get(a)).pointValue();
+				total += cardAt(index).pointValue();
 			}
-			if(total == 0)
+			if(total == 11)
 			{
 				return true;
 			}
@@ -109,7 +103,14 @@ public class ElevensBoard extends Board {
 				}
 				for(int c = b + 1; c < cardsLeft.size(); c++)
 				{
-					temp.add(c);
+					if(temp.size() == 3)
+					{
+						temp.set(2, c);
+					}
+					else
+					{
+						temp.add(c);
+					}
 					if(isLegal(temp))
 					{
 						return true;
