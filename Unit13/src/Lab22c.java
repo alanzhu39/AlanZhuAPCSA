@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class - 
@@ -19,24 +19,24 @@ public class Lab22c
 		test.add("tommy");
 		out.println("adding bobby");
 		test.add("bobby");
-		out.println("printing the list ::  "+test+"\n\n");
+		out.println("printing the list :: "+test+"\n\n");
 		out.println("removing bobby");
 		test.remove("bobby");
-		out.println("printing the list ::  "+test+"\n\n");
+		out.println("printing the list :: "+test+"\n\n");
 		out.println("removing alice");
 		test.remove("alice");
-		out.println("printing the list ::  "+test+"\n\n");
+		out.println("printing the list :: "+test+"\n\n");
 		out.println("adding fred");
 		test.add("fred");
 		out.println("adding xylophone");
 		test.add("xylophone");
-		out.println("printing the list ::  "+test+"\n\n");
+		out.println("printing the list :: "+test+"\n\n");
 		out.println("removing bobby");
 		test.remove("tommy");
 		test.remove("tommy");  //should do nothing		
-		out.println("printing the list ::  "+test+"\n\n");		
+		out.println("printing the list :: "+test+"\n\n");		
 		out.println("removing fred");
 		test.remove("fred");  		
-		out.println("printing the list ::  "+test+"\n\n");				
+		out.println("printing the list :: "+test+"\n\n");				
 	}
 }
