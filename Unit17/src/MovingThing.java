@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -15,39 +15,46 @@ public abstract class MovingThing implements Locatable
 	public MovingThing()
 	{
 		//add more code
+		this(0,0);
 	}
 
 	public MovingThing(int x, int y)
 	{
 		//add more code
+		xPos = x;
+		yPos = y;
 	}
 
 	public void setPos( int x, int y)
 	{
 		//add more code
+		xPos = x;
+		yPos = y;
 	}
 
 
 	public void setX(int x)
 	{
 		//add more code
+		xPos = x;
 	}
 
 
 	public void setY(int y)
 	{
 		//add more code
+		yPos = y;
 	}
 
 	public int getX()
 	{
-		return 0;
+		return xPos;
 	}
 
 
 	public int getY()
 	{
-		return 0;
+		return yPos;
 	}
 
 	public abstract void setSpeed( int s );
@@ -58,12 +65,18 @@ public abstract class MovingThing implements Locatable
 	{
 		if(direction.equals("LEFT"))
 	      setX(getX()-getSpeed());
+		else if(direction.equals("RIGHT"))
+			setX(getX() + getSpeed());
+		else if(direction.equals("UP"))
+			setY(getY() - getSpeed());
+		else if(direction.equals("DOWN"))
+			setY(getY() + getSpeed());
 
       //add more code to complete the move method
 	}
 
 	public String toString()
 	{
-		return "";
+		return getX() + " " + getY();
 	}
 }

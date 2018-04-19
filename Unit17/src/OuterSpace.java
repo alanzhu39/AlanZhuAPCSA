@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -38,6 +38,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		keys = new boolean[5];
 
 		//instantiate other stuff
+		ship = new Ship(100,100,5);
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -66,6 +67,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		graphToBack.setColor(Color.BLUE);
 		graphToBack.drawString("StarFighter ", 25, 50 );
+		
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
 
@@ -73,14 +75,27 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			ship.move("LEFT");
 		}
+		else if(keys[1] == true)
+		{
+			ship.move("RIGHT");
+		}
+		else if(keys[2] == true)
+		{
+			ship.move("UP");
+		}
+		else if(keys[3] == true)
+		{
+			ship.move("DOWN");
+		}
 
 		//add code to move stuff
 
 
 		//add in collision detection
 
-
+		ship.draw(graphToBack);
 		twoDGraph.drawImage(back, null, 0, 0);
+		
 	}
 
 
