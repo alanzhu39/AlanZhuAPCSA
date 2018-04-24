@@ -490,9 +490,9 @@ public class Picture extends SimplePicture
 	  Pixel leftPixel = null;
 	  Pixel topPixel = null;
 	  Pixel[][] pixels = this.getPixels2D();
-	  for(int a = y; a < h; a++)
+	  for(int a = 1; a < h; a++)
 	  {
-		  for(int b = x; b < w; b++)
+		  for(int b = 1; b < w; b++)
 		  {
 			  leftPixel = pixels[a][b - 1];
 			  topPixel = pixels[a - 1][b];
