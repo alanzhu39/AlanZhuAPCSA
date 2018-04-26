@@ -1,0 +1,43 @@
+/**
+ * Creates an Asteroid object that spawns at a random spot on the field
+ * somewhere near the ship. If the ship collides with the 
+ * asteroid, it will die. If a bullet hits the asteroid, it will stop.
+ * 
+ * @author Alan Zhu
+ */
+public class Asteroid {
+	/** x position of asteroid*/
+	private int xPos;
+	/** y position of asteroid*/
+	private int yPos;
+	/**
+	 * public constructor
+	 * 
+	 * @param x
+	 * @param y
+	 */
+	public Asteroid(int x, int y)
+	{
+		xPos = x;
+		yPos = y;
+	}
+	
+	public int getX()
+	{
+		return xPos;
+	}
+	
+	public int getY()
+	{
+		return yPos;
+	}
+	
+	public void setX(int x)
+	{
+		xPos = x;
+	}
+	public void setY(int y)
+	{
+		
+	}
+}

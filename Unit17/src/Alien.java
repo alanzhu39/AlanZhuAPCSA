@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -31,31 +31,55 @@ public class Alien extends MovingThing
 		speed=s;
 		try
 		{
-			image = ImageIO.read(new File("alien.jpg"));
+			image = ImageIO.read(new File("/Users/alanzhu39/Desktop/AlanZhuAPCSA/Unit17/src/alien.JPG"));
 		}
 		catch(Exception e)
 		{
 			//feel free to do something here
+			System.out.println("file not found");
 		}
 	}
 
 	public void setSpeed(int s)
 	{
 	   //add code
+		speed = s;
 	}
 
 	public int getSpeed()
 	{
-	   return 0;
+	   return speed;
+	}
+	
+	public void move(String direction)
+	{
+		if(direction.equals("LEFT"))
+	      setX(getX()-getSpeed());
+		else if(direction.equals("RIGHT"))
+			setX(getX() + getSpeed());
+		else if(direction.equals("UP"))
+			setY(getY() - getSpeed());
+		else if(direction.equals("DOWN"))
+			setY(getY() + getSpeed());
+		
+		if(getX() > 800)
+		{
+			setX(0);
+		}
+		if(getX() < 0)
+		{
+			setX(800);
+		}
+      //add more code to complete the move method
 	}
 
 	public void draw( Graphics window )
 	{
-   	window.drawImage(image,getX(),getY(),80,80,null);
+		window.drawImage(image,getX(),getY(),80,80,null);
 	}
 
 	public String toString()
 	{
-		return "";
+		return super.toString() + " " + getSpeed();
 	}
 }
