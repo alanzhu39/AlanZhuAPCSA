@@ -21,8 +21,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
-	private Asteroid asteroid;
-	
+
 	 //uncomment once you are ready for this part
 	 
 	private ArrayList<Alien> aliens;
@@ -39,7 +38,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		keys = new boolean[5];
 
 		//instantiate other stuff
-		ship = new Ship(360,500,5);
+		ship = new Ship(300,300,5);
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -71,9 +70,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		aliens.add(new Alien(650,150,2));
 		aliens.add(new Alien(750,150,2));
 		shots = new ArrayList<Ammo>();
-		int x = (int)(Math.random() * 760);
-		int y = (int)(Math.random() * 150) + 250;
-		asteroid = new Asteroid(x,y);
 	}
 
    public void update(Graphics window)
@@ -131,7 +127,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		
 		//add code to move stuff
-		asteroid.draw(graphToBack);
+		
 
 		ship.draw(graphToBack);
 		for(Alien alien : aliens)
@@ -150,15 +146,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 					shots.get(i).setPos(800,0);
 				}
 			}
-			if(shots.get(i).getX() <= asteroid.getX() + 80 && shots.get(i).getX() >= asteroid.getX() - 10 && shots.get(i).getY() <= asteroid.getY() + 80 && shots.get(i).getY() >= asteroid.getY() -10)
-			{
-				shots.get(i).setPos(800,0);
-			}
-		}
-		if(ship.getX() > asteroid.getX() - 80 && ship.getX() < asteroid.getX() + 80 && ship.getY() > asteroid.getY() - 80 && ship.getY() < asteroid.getY() + 80)
-		{
-			ship.setSpeed(0);
-			ship.setPos(800, 0);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);

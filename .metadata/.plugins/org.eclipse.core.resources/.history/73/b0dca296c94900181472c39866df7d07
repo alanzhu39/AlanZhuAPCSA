@@ -159,6 +159,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			ship.setSpeed(0);
 			ship.setPos(800, 0);
+			graphToBack.setColor(Color.CYAN);
+			graphToBack.drawString("You died", 350, 500);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);

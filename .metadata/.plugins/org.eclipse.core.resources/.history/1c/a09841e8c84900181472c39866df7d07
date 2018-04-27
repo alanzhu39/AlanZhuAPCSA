@@ -72,7 +72,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		aliens.add(new Alien(750,150,2));
 		shots = new ArrayList<Ammo>();
 		int x = (int)(Math.random() * 760);
-		int y = (int)(Math.random() * 150) + 250;
+		int y = (int)(Math.random() * 200) + 250;
 		asteroid = new Asteroid(x,y);
 	}
 
@@ -150,15 +150,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 					shots.get(i).setPos(800,0);
 				}
 			}
-			if(shots.get(i).getX() <= asteroid.getX() + 80 && shots.get(i).getX() >= asteroid.getX() - 10 && shots.get(i).getY() <= asteroid.getY() + 80 && shots.get(i).getY() >= asteroid.getY() -10)
-			{
-				shots.get(i).setPos(800,0);
-			}
-		}
-		if(ship.getX() > asteroid.getX() - 80 && ship.getX() < asteroid.getX() + 80 && ship.getY() > asteroid.getY() - 80 && ship.getY() < asteroid.getY() + 80)
-		{
-			ship.setSpeed(0);
-			ship.setPos(800, 0);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);

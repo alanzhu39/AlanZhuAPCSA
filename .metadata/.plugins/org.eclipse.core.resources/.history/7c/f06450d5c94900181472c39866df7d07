@@ -11,7 +11,6 @@ import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
 public class Asteroid {
-	
 	/** x position of asteroid*/
 	private int xPos;
 	/** y position of asteroid*/
@@ -39,7 +38,6 @@ public class Asteroid {
 			System.out.println("File not found");
 		}
 	}
-	
 	/**
 	 * accesses x position of asteroid
 	 * @return x position
@@ -48,7 +46,6 @@ public class Asteroid {
 	{
 		return xPos;
 	}
-	
 	/**
 	 * accesses y position of asteroid
 	 * @return y position
@@ -57,7 +54,6 @@ public class Asteroid {
 	{
 		return yPos;
 	}
-	
 	/**
 	 * sets the x position of the asteroid
 	 * @param x position
@@ -66,7 +62,6 @@ public class Asteroid {
 	{
 		xPos = x;
 	}
-	
 	/**
 	 * sets the y position of the asteroid
 	 * @param y position
@@ -76,10 +71,6 @@ public class Asteroid {
 		yPos = y;
 	}
 	
-	/**
-	 * draws the image of the asteroid at xPos,yPos
-	 * @param window to draw on
-	 */
 	public void draw(Graphics window)
 	{
 		window.drawImage(image, getX(), getY(), 80, 80, null);

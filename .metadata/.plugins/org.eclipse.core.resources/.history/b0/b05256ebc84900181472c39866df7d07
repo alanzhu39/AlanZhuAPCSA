@@ -21,12 +21,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
-
-	/* uncomment once you are ready for this part
-	 *
+	private Asteroid asteroid;
+	
+	 //uncomment once you are ready for this part
+	 
 	private ArrayList<Alien> aliens;
 	private ArrayList<Ammo> shots;
-	*/
+	
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -38,14 +39,41 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		keys = new boolean[5];
 
 		//instantiate other stuff
-		ship = new Ship(100,100,5);
+		ship = new Ship(360,500,5);
 
 		this.addKeyListener(this);
 		new Thread(this).start();
 
 		setVisible(true);
-		Alien alienOne = new Alien(50,50,5);
-		Alien alienTwo = new Alien(100,50,5);
+		alienOne = new Alien(50,50,2);
+		alienTwo = new Alien(150,50,2);
+		Alien alienThree = new Alien(250,50,2);
+		Alien alienFour = new Alien(350,50,2);
+		Alien alienFive = new Alien(450,50,2);
+		Alien alienSix = new Alien(550,50,2);
+		Alien alienSeven = new Alien(650,50,2);
+		Alien alienEight = new Alien(750,50,2);
+		aliens = new ArrayList<Alien>();
+		aliens.add(alienOne);
+		aliens.add(alienTwo);
+		aliens.add(alienThree);
+		aliens.add(alienFour);
+		aliens.add(alienFive);
+		aliens.add(alienSix);
+		aliens.add(alienSeven);
+		aliens.add(alienEight);
+		aliens.add(new Alien(50,150,2));
+		aliens.add(new Alien(150,150,2));
+		aliens.add(new Alien(250,150,2));
+		aliens.add(new Alien(350,150,2));
+		aliens.add(new Alien(450,150,2));
+		aliens.add(new Alien(550,150,2));
+		aliens.add(new Alien(650,150,2));
+		aliens.add(new Alien(750,150,2));
+		shots = new ArrayList<Ammo>();
+		int x = (int)(Math.random() * 760);
+		int y = (int)(Math.random() * 200) + 250;
+		asteroid = new Asteroid(x,y);
 	}
 
    public void update(Graphics window)
@@ -72,6 +100,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
+		
 
 		if(keys[0] == true)
 		{
@@ -89,14 +118,46 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			ship.move("DOWN");
 		}
+		else if(keys[4])
+		{
+			Ammo amm = new Ammo(ship.getX() + 35,ship.getY(),5);
+			shots.add(amm);
+		}
 
-		//add code to move stuff
+		for(int i = 0; i < shots.size(); i += 15)
+		{
+			shots.get(i).draw(graphToBack);
+			shots.get(i).move("UP");
+		}
 		
-
-
-		//add in collision detection
+		//add code to move stuff
+		asteroid.draw(graphToBack);
 
 		ship.draw(graphToBack);
+		for(Alien alien : aliens)
+		{
+			alien.draw(graphToBack);
+			alien.move("LEFT");
+		}
+		//add in collision detection
+		for(int i = 0; i < shots.size(); i += 5)
+		{
+			for(Alien alien : aliens)
+			{
+				if(shots.get(i).getX() <= alien.getX() + 80 && shots.get(i).getX() >= alien.getX() - 10 && shots.get(i).getY() <= alien.getY() + 75 && shots.get(i).getY() >= alien.getY() -10)
+				{
+					aliens.remove(alien);
+					shots.get(i).setPos(800,0);
+				}
+			}
+		}
+		if(ship.getX() > asteroid.getX() - 80 && ship.getX() < asteroid.getX() + 80 && ship.getY() > asteroid.getY() - 80 && ship.getY() < asteroid.getY() + 80)
+		{
+			ship.setSpeed(0);
+			ship.setPos(800, 0);
+			graphToBack.drawString("You ded", 350, 500);
+		}
+		
 		twoDGraph.drawImage(back, null, 0, 0);
 		
 	}
