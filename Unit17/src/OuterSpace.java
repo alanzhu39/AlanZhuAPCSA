@@ -25,8 +25,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	
 	 //uncomment once you are ready for this part
 	 
-	private ArrayList<Alien> aliens;
-	private ArrayList<Ammo> shots;
+	private AlienHorde aliens;
+	private Bullets shots;
 	
 
 	private boolean[] keys;
@@ -53,7 +53,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		Alien alienSix = new Alien(550,50,2);
 		Alien alienSeven = new Alien(650,50,2);
 		Alien alienEight = new Alien(750,50,2);
-		aliens = new ArrayList<Alien>();
+		aliens = new AlienHorde(0);
 		aliens.add(alienOne);
 		aliens.add(alienTwo);
 		aliens.add(alienThree);
@@ -70,7 +70,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		aliens.add(new Alien(550,150,2));
 		aliens.add(new Alien(650,150,2));
 		aliens.add(new Alien(750,150,2));
-		shots = new ArrayList<Ammo>();
+		shots = new Bullets();
 		int x = (int)(Math.random() * 760);
 		int y = (int)(Math.random() * 150) + 250;
 		asteroid = new Asteroid(x,y);
@@ -124,41 +124,49 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			shots.add(amm);
 		}
 
-		for(int i = 0; i < shots.size(); i += 15)
+		for(int i = 0; i < shots.getList().size(); i += 15)
 		{
-			shots.get(i).draw(graphToBack);
-			shots.get(i).move("UP");
+			shots.getList().get(i).draw(graphToBack);
+			shots.getList().get(i).move("UP");
 		}
 		
 		//add code to move stuff
 		asteroid.draw(graphToBack);
 
 		ship.draw(graphToBack);
-		for(Alien alien : aliens)
-		{
-			alien.draw(graphToBack);
-			alien.move("LEFT");
-		}
+		aliens.drawEmAll(graphToBack);
+		aliens.moveEmAll();
 		//add in collision detection
-		for(int i = 0; i < shots.size(); i += 5)
+		aliens.removeDeadOnes(shots.getList());
+		
+		for(int i = 0; i < shots.getList().size(); i += 15)
 		{
-			for(Alien alien : aliens)
+			if(shots.getList().get(i).getX() <= asteroid.getX() + 80 && shots.getList().get(i).getX() >= asteroid.getX() - 10 && shots.getList().get(i).getY() <= asteroid.getY() + 80 && shots.getList().get(i).getY() >= asteroid.getY() -10)
 			{
-				if(shots.get(i).getX() <= alien.getX() + 80 && shots.get(i).getX() >= alien.getX() - 10 && shots.get(i).getY() <= alien.getY() + 75 && shots.get(i).getY() >= alien.getY() -10)
-				{
-					aliens.remove(alien);
-					shots.get(i).setPos(800,0);
-				}
-			}
-			if(shots.get(i).getX() <= asteroid.getX() + 80 && shots.get(i).getX() >= asteroid.getX() - 10 && shots.get(i).getY() <= asteroid.getY() + 80 && shots.get(i).getY() >= asteroid.getY() -10)
-			{
-				shots.get(i).setPos(800,0);
+				shots.getList().get(i).setPos(800,0);
 			}
 		}
+		
 		if(ship.getX() > asteroid.getX() - 80 && ship.getX() < asteroid.getX() + 80 && ship.getY() > asteroid.getY() - 80 && ship.getY() < asteroid.getY() + 80)
 		{
 			ship.setSpeed(0);
 			ship.setPos(800, 0);
+		}
+		
+		if(ship.getX() == 800 && ship.getY() == 0)
+		{
+			Color temp = graphToBack.getColor();
+			graphToBack.setColor(Color.CYAN);
+			graphToBack.drawString("You died", 350, 500);
+			graphToBack.setColor(temp);
+		}
+		
+		if(aliens.getList().size() == 0)
+		{
+			Color temp = graphToBack.getColor();
+			graphToBack.setColor(Color.CYAN);
+			graphToBack.drawString("You win", 350, 500);
+			graphToBack.setColor(temp);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);
