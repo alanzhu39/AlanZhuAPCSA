@@ -167,7 +167,7 @@ public class PictureTester
   
   public static void testSharpen(int x, int y, int w, int h)
   {
-	  //System.out.println("Name: Alan Zhu\nPeriod: 1\nDate: 4/24/18\nComputer Number: 26");
+	  System.out.println("Name: Alan Zhu\nPeriod: 1\nDate: 4/24/18\nComputer Number: 26");
 	  Picture redMoto = new Picture("redMotorcycle.jpg");
 	  Picture message = new Picture("msg.jpg");
 	  redMoto.explore();

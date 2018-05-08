@@ -169,10 +169,10 @@ public class PictureTester
   {
 	  //System.out.println("Name: Alan Zhu\nPeriod: 1\nDate: 4/24/18\nComputer Number: 26");
 	  Picture redMoto = new Picture("redMotorcycle.jpg");
-	  Picture message = new Picture("msg.jpg");
-	  redMoto.explore();
-	  redMoto.encode(message);
-	  redMoto.explore();
+	  System.out.println(redMoto.getPixel(0, 0).getAlpha());
+	  //redMoto.explore();
+	  //redMoto.sharpen(x, y, w, h);
+	  //redMoto.explore();
   }
   
   /** Main method for testing.  Every class can have a main

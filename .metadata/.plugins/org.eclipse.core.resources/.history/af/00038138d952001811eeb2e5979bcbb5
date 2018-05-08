@@ -487,18 +487,7 @@ public class Picture extends SimplePicture
   
   public void encode(Picture messagePic)
   {
-	  Pixel[][] messagePixels = messagePic.getPixels2D();
-	  Pixel[][] currPixels = this.getPixels2D();
-	  for(int r = 0; r < messagePixels.length;r++)
-	  {
-		  for(int c = 0; c < messagePixels[0].length;c++)
-		  {
-			  if(messagePixels[r][c].colorDistance(Color.BLACK)<50)
-			  {
-				  currPixels[r][c].setAlpha(254);
-			  }
-		  }
-	  }
+	  
   }
   
   public void decode()
