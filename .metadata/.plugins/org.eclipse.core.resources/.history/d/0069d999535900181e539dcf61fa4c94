@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.awt.Graphics;
+
+public class Bricks {
+	private ArrayList<Brick> bricks;
+	
+	public Bricks()
+	{
+		bricks = new ArrayList<Brick>();
+	}
+	
+	public void addBrick(Brick b)
+	{
+		bricks.add(b);
+	}
+	
+	public void deleteBrick(int index)
+	{
+		bricks.remove(index);
+	}
+	
+	public void addBrick(Brick b, int index)
+	{
+		bricks.add(index,b);
+	}
+	
+	public void drawBricks(Graphics window)
+	{
+		for(Brick b : bricks)
+		{
+			b.draw(window);
+		}
+	}
+}

@@ -487,23 +487,51 @@ public class Picture extends SimplePicture
   
   public void encode(Picture messagePic)
   {
+	  //Picture curr = new Picture(this.getBufferedImage());
 	  Pixel[][] messagePixels = messagePic.getPixels2D();
 	  Pixel[][] currPixels = this.getPixels2D();
-	  for(int r = 0; r < messagePixels.length;r++)
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  for(int r = 0; r < currPixels.length;r++)
 	  {
-		  for(int c = 0; c < messagePixels[0].length;c++)
+		  for(int c = 0; c < currPixels[0].length;c++)
 		  {
-			  if(messagePixels[r][c].colorDistance(Color.BLACK)<50)
+			  currPixel = currPixels[r][c];
+			  currPixel.setAlpha(128);
+			  messagePixel = messagePixels[r][c];
+			  if(messagePixel.colorDistance(Color.BLACK)<50)
 			  {
-				  currPixels[r][c].setAlpha(254);
+				  //currPixel.setAlpha(0);
+				  //System.err.println(currPixel.getAlpha());
 			  }
 		  }
 	  }
+	  
   }
   
-  public void decode()
+  public Picture decode()
   {
-	  
+	  Pixel[][] currPixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Picture message = new Picture(height,width);
+	  Pixel[][] messagePixels = message.getPixels2D();
+	  Pixel currPixel = null;
+	  for(int r = 0; r < this.getHeight();r++)
+	  {
+		  for(int c = 0; c < this.getWidth();c++)
+		  {
+			  currPixel = currPixels[r][c];
+			  messagePixels[r][c].setColor(Color.WHITE);
+			  if(currPixel.getAlpha() < 255)
+			  {
+				  //System.err.println("kys");
+				  messagePixels[r][c].setAlpha(255);
+				  messagePixels[r][c].setColor(Color.BLACK);
+			  }
+		  }
+	  }
+	  return message;
   }
   
   public void sharpen(int x, int y, int w, int h)

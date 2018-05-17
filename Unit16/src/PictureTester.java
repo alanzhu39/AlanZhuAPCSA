@@ -171,8 +171,22 @@ public class PictureTester
 	  Picture redMoto = new Picture("redMotorcycle.jpg");
 	  Picture message = new Picture("msg.jpg");
 	  redMoto.explore();
-	  redMoto.encode(message);
+	  redMoto.sharpen(x,y,w,h);
 	  redMoto.explore();
+  }
+  
+  public static void testEncodeDecode(){
+	  Picture redMoto = new Picture("redMotorcycle.jpg");
+	  Picture message = new Picture("msg.jpg");	
+	  //redMoto = new Picture(redMoto.getBufferedImage());
+	  message.explore();
+	  redMoto.explore();
+	  redMoto.encode(message);
+	  System.out.println(redMoto.getPixel(223, 7).getAlpha());
+	  Picture encoded = new Picture(redMoto.getBufferedImage());
+	  encoded.explore();
+	  Picture decoded = redMoto.decode();
+	  decoded.explore();
   }
   
   /** Main method for testing.  Every class can have a main
@@ -209,6 +223,7 @@ public class PictureTester
 	  //testSetRedToHalfValueInTopHalf();
 	  //testClearBlueOverValue(200);
 	  //testGetAverageForColumn(0);
-	  testSharpen(50,50,500,400);
+	  //testSharpen(50,50,500,400);
+	  testEncodeDecode();
   }
 }

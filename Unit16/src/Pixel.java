@@ -237,10 +237,21 @@ public class Pixel
   public void updatePicture(int alpha, int red, int green, int blue)
   {
     // create a 32 bit int with alpha, red, green blue from left to right
-    int value = (alpha << 24) + (red << 16) + (green << 8) + blue;
+    int value = (alpha << 24) | (red << 16) | (green << 8) | blue;
     
     // update the picture with the int value
     picture.setBasicPixel(x,y,value);
+    if(alpha < 255)
+    {
+    	//System.out.println(value);
+    	//System.out.println(this.getRGB());
+    }
+    
+  }
+  
+  public int getRGB()
+  {
+	  return picture.getBasicPixel(x,y);
   }
   
   /**

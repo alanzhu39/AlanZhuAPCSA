@@ -81,7 +81,7 @@ public class SimplePicture implements DigitalPicture
   */
  public  SimplePicture(int width, int height)
  {
-   bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+   bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
    title = "None";
    fileName = "None";
    extension = "jpg";
@@ -470,7 +470,9 @@ public class SimplePicture implements DigitalPicture
      }
    }
    
-   bufferedImage = ImageIO.read(file);
+   BufferedImage bufimg = ImageIO.read(file);
+   bufferedImage = new BufferedImage(bufimg.getWidth(),bufimg.getHeight(),BufferedImage.TYPE_INT_ARGB);
+   bufferedImage.getGraphics().drawImage(bufimg,0,0,null);
  }
 
 

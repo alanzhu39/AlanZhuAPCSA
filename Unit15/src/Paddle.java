@@ -62,6 +62,24 @@ public class Paddle extends Block
 	   setY(getY() + getSpeed());
 	   window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
+   
+   public void moveLeftAndDraw(Graphics window)
+   {
+	   window.setColor(Color.WHITE);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
+	   window.setColor(getColor());
+	   setX(getX() - getSpeed());
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
+   }
+   
+   public void moveRightAndDraw(Graphics window)
+   {
+	   window.setColor(Color.WHITE);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
+	   window.setColor(getColor());
+	   setX(getX() + getSpeed());
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
+   }
 
    //add get methods
    public int getSpeed()

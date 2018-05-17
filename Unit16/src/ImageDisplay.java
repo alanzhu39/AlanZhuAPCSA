@@ -12,7 +12,7 @@ public class ImageDisplay extends JPanel implements Scrollable
   
   /////////////////////////// fields (attributes ///////////////////////////
   /** the image to draw */
-  private Image image;         
+  private BufferedImage image;         
   /** the preferred size of the display */
   private Dimension prefSize;  
   /** the current x index */
@@ -26,7 +26,7 @@ public class ImageDisplay extends JPanel implements Scrollable
    * Constructor that takes the image to display
    * @param theImage the image to display
    */
-  public ImageDisplay(Image theImage)
+  public ImageDisplay(BufferedImage theImage)
   {
     image = theImage;
     prefSize = new Dimension(image.getWidth(this),image.getHeight(this));
@@ -40,7 +40,7 @@ public class ImageDisplay extends JPanel implements Scrollable
    * @param x the current x value to use
    * @param y the current y value to use
    */
-  public ImageDisplay(Image theImage, int x, int y)
+  public ImageDisplay(BufferedImage theImage, int x, int y)
   {
     this(theImage);
     currentX = x;
@@ -91,7 +91,7 @@ public class ImageDisplay extends JPanel implements Scrollable
    * Method to set the image
    * @param theImage the new image to use
    */
-  public void setImage(Image theImage)
+  public void setImage(BufferedImage theImage)
   {
     image = theImage;
     setPreferredSize(new Dimension(image.getWidth(this),image.getHeight(this)));

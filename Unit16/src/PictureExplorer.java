@@ -1,4 +1,4 @@
-
+import java.awt.AlphaComposite;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -216,6 +216,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     
     // show the picture in the frame at the size it needs to be
     pictureFrame.pack();
+    //pictureFrame.setBackground(new Color(0,0,0,128));
     pictureFrame.setVisible(true);
   }
   
@@ -486,7 +487,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     BufferedImage bimg = picture.getBufferedImage();
     
     // set the scroll image icon to the new image
-    imageDisplay.setImage(bimg.getScaledInstance(width, height, Image.SCALE_DEFAULT));
+    //imageDisplay.setImage(bimg.getScaledInstance(width, height, Image.SCALE_DEFAULT));
     imageDisplay.setCurrentX((int) (colIndex * zoomFactor));
     imageDisplay.setCurrentY((int) (rowIndex * zoomFactor));
     imageDisplay.revalidate();
@@ -577,7 +578,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
       rValue.setText("R: " + pixel.getRed());
       gValue.setText("G: " + pixel.getGreen());
       bValue.setText("B: " + pixel.getBlue());
-      colorPanel.setBackground(new Color(pixel.getRed(), pixel.getGreen(), pixel.getBlue()));
+      colorPanel.setBackground(new Color(pixel.getRed(), pixel.getGreen(), pixel.getBlue(),pixel.getAlpha()));
       
     } 
     else
