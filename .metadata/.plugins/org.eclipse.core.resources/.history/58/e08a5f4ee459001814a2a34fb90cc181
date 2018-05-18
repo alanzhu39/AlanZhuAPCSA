@@ -36,7 +36,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//set up all variables related to the game
 		//leftScore = 0;
 		//rightScore = 0;
-		paddle = new Paddle(400,200,40,40,4);
+		paddle = new Paddle(400,200,40,40,3);
 		ball = new Ball();
 		ball.setXSpeed(1);
 		//leftPaddle = new Paddle(0,100,10,50,2);
@@ -103,7 +103,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			ball.draw(graphToBack,Color.WHITE);
 			ball.setColor(Color.BLACK);
-			bricks.setColor(Color.RED);
 			bricks.populate();
 			ball.setPos(200, 200);
 		}
@@ -160,7 +159,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		}*/
 		
 		//check ball and paddle collision
-		/*if(ball.didCollideLeft(paddle))
+		if(ball.didCollideLeft(paddle))
 		{
 			ball.setXSpeed(-ball.getXSpeed());
 		}
@@ -176,23 +175,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		if(ball.didCollideTop(paddle))
 		{
 			ball.setYSpeed(-ball.getYSpeed());
-		}*/
-		
-		if(ball.paddleCollide(paddle).equals("up"))
-		{
-			ball.setYSpeed(-ball.getYSpeed());
-		}
-		if(ball.paddleCollide(paddle).equals("down"))
-		{
-			ball.setYSpeed(-ball.getYSpeed());
-		}
-		if(ball.paddleCollide(paddle).equals("left"))
-		{
-			ball.setXSpeed(-ball.getXSpeed());
-		}
-		if(ball.paddleCollide(paddle).equals("right"))
-		{
-			ball.setXSpeed(-ball.getXSpeed());
 		}
 		
 		for(int i = 0; i < bArray.length; i++)

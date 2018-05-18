@@ -19,39 +19,6 @@ public class Ball extends Block implements Collidable
 		ySpeed = 1;
 	}
 	
-	public String paddleCollide(Paddle p)
-	{
-		int diffUp = Math.abs(this.getY() + this.getHeight() - p.getY());
-		int diffDown = Math.abs(this.getY() - (p.getY() + p.getHeight()));
-		int diffLeft = Math.abs(this.getX() + this.getWidth() - p.getX());
-		int diffRight = Math.abs(this.getX() - (p.getX() + p.getWidth()));
-		int[] diffs = {diffUp, diffDown, diffLeft, diffRight};
-		int min = 0;
-		if(this.getX() + this.getWidth() >= p.getX() && this.getX() <= p.getX() + p.getWidth() && this.getY() + this.getHeight() >= p.getY() && this.getY() <= p.getY() + p.getHeight())
-		{
-			for(int diff : diffs)
-			{
-				if(diff < min)
-				{
-					min = diff;
-				}
-			}
-			if(min == diffUp)
-			{
-				return "up";
-			}
-			if(min == diffDown)
-			{
-				return "down";
-			}
-			if(min == diffRight)
-				return "right";
-			if(min == diffLeft)
-				return "left";
-		}
-		return "";
-	}
-	
 	public boolean didCollideLeft(Object obj)
 	{
 		Block block = (Block)obj;

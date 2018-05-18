@@ -4,12 +4,10 @@ import java.awt.Graphics;
 
 public class Bricks {
 	private ArrayList<Brick> bricks;
-	private Color color;
 	
 	public Bricks()
 	{
 		bricks = new ArrayList<Brick>();
-		color = Color.GREEN;
 	}
 	
 	public void addBrick(Brick b)
@@ -62,7 +60,7 @@ public class Bricks {
 		{
 			for(int y = 1; y < 40; y += 20)
 			{
-				Brick b = new Brick(x,y,98,18,color);
+				Brick b = new Brick(x,y,98,18,Color.GREEN);
 				addBrick(b);
 			}
 		}
@@ -71,7 +69,7 @@ public class Bricks {
 		{
 			for(int y = 541; y < 580; y += 20)
 			{
-				Brick b = new Brick(x,y,98,18,color);
+				Brick b = new Brick(x,y,98,18,Color.GREEN);
 				addBrick(b);
 			}
 		}
@@ -80,7 +78,7 @@ public class Bricks {
 		{
 			for(int x = 1; x < 40; x += 20)
 			{
-				Brick b = new Brick(x,y,18,98,color);
+				Brick b = new Brick(x,y,18,98,Color.GREEN);
 				addBrick(b);
 			}
 		}
@@ -89,14 +87,9 @@ public class Bricks {
 		{
 			for(int x = 741; x < 780; x += 20)
 			{
-				Brick b = new Brick(x,y,18,98,color);
+				Brick b = new Brick(x,y,18,98,Color.GREEN);
 				addBrick(b);
 			}
 		}
-	}
-	
-	public void setColor(Color c)
-	{
-		color = c;
 	}
 }

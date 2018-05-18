@@ -182,13 +182,13 @@ public class PictureTester
 	  message.explore();
 	  redMoto.explore();
 	  redMoto.encode(message);
-	  System.out.println(redMoto.getPixel(294,334).getAlpha());
+	  System.out.println(redMoto.getPixel(7,233).getAlpha());
 	  Picture encoded = new Picture(redMoto.getBufferedImage());
 	  encoded.explore();
 	  Picture decoded = redMoto.decode();
 	  decoded.explore();
-	  //System.out.println(redMoto.getWidth());
-	  //System.out.println(redMoto.getHeight());
+	  System.out.println(redMoto.getWidth());
+	  System.out.println(redMoto.getHeight());
   }
   
   /** Main method for testing.  Every class can have a main

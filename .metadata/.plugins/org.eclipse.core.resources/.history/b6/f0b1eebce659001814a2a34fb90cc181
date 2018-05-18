@@ -36,7 +36,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//set up all variables related to the game
 		//leftScore = 0;
 		//rightScore = 0;
-		paddle = new Paddle(400,200,40,40,4);
+		paddle = new Paddle(400,200,40,40,3);
 		ball = new Ball();
 		ball.setXSpeed(1);
 		//leftPaddle = new Paddle(0,100,10,50,2);
@@ -103,7 +103,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			ball.draw(graphToBack,Color.WHITE);
 			ball.setColor(Color.BLACK);
-			bricks.setColor(Color.RED);
+			bricks.setColor(new Color((int)(Math.random() * 0x1000000)));
 			bricks.populate();
 			ball.setPos(200, 200);
 		}

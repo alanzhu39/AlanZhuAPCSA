@@ -177,18 +177,16 @@ public class PictureTester
   
   public static void testEncodeDecode(){
 	  Picture redMoto = new Picture("redMotorcycle.jpg");
-	  Picture message = new Picture("crybytes-apple_icon copy.jpg");	
+	  Picture message = new Picture("msg.jpg");	
 	  //redMoto = new Picture(redMoto.getBufferedImage());
 	  message.explore();
 	  redMoto.explore();
 	  redMoto.encode(message);
-	  System.out.println(redMoto.getPixel(294,334).getAlpha());
+	  System.out.println(redMoto.getPixel(223, 7).getAlpha());
 	  Picture encoded = new Picture(redMoto.getBufferedImage());
 	  encoded.explore();
 	  Picture decoded = redMoto.decode();
 	  decoded.explore();
-	  //System.out.println(redMoto.getWidth());
-	  //System.out.println(redMoto.getHeight());
   }
   
   /** Main method for testing.  Every class can have a main

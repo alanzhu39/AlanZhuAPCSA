@@ -487,7 +487,6 @@ public class Picture extends SimplePicture
   
   public void encode(Picture messagePic)
   {
-	  //Picture curr = new Picture(this.getBufferedImage());
 	  Pixel[][] messagePixels = messagePic.getPixels2D();
 	  Pixel[][] currPixels = this.getPixels2D();
 	  Pixel currPixel = null;
@@ -497,12 +496,10 @@ public class Picture extends SimplePicture
 		  for(int c = 0; c < currPixels[0].length;c++)
 		  {
 			  currPixel = currPixels[r][c];
-			  currPixel.setAlpha(128);
 			  messagePixel = messagePixels[r][c];
 			  if(messagePixel.colorDistance(Color.BLACK)<50)
 			  {
-				  //currPixel.setAlpha(0);
-				  //System.err.println(currPixel.getAlpha());
+				  currPixel.setAlpha(254);
 			  }
 		  }
 	  }
@@ -525,7 +522,6 @@ public class Picture extends SimplePicture
 			  messagePixels[r][c].setColor(Color.WHITE);
 			  if(currPixel.getAlpha() < 255)
 			  {
-				  //System.err.println("kys");
 				  messagePixels[r][c].setAlpha(255);
 				  messagePixels[r][c].setColor(Color.BLACK);
 			  }

@@ -27,7 +27,7 @@ public class Ball extends Block implements Collidable
 		int diffRight = Math.abs(this.getX() - (p.getX() + p.getWidth()));
 		int[] diffs = {diffUp, diffDown, diffLeft, diffRight};
 		int min = 0;
-		if(this.getX() + this.getWidth() >= p.getX() && this.getX() <= p.getX() + p.getWidth() && this.getY() + this.getHeight() >= p.getY() && this.getY() <= p.getY() + p.getHeight())
+		if(this.getX() + this.getWidth() > p.getX() && this.getX() < p.getX() + p.getWidth() && this.getY() + this.getHeight() > p.getY() && this.getY() < p.getY() + p.getHeight())
 		{
 			for(int diff : diffs)
 			{

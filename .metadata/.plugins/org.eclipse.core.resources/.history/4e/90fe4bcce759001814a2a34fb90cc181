@@ -103,7 +103,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			ball.draw(graphToBack,Color.WHITE);
 			ball.setColor(Color.BLACK);
-			bricks.setColor(Color.RED);
+			bricks.setColor(new Color((int)(Math.random() * 0x1000000)));
 			bricks.populate();
 			ball.setPos(200, 200);
 		}
